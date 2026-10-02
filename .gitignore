@@ -1,0 +1,197 @@
+=========================
+
+Secrets & environment
+
+=========================
+
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+credentials.json
+secrets.json
+
+
+
+# =========================
+
+# Private application materials
+
+# =========================
+cvs/
+cover_letters/
+
+=========================
+
+Python
+
+=========================
+
+pycache/
+*.py[cod]
+*$py.class
+*.so
+
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+Virtual environments
+
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+=========================
+
+Testing / coverage
+
+=========================
+
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+=========================
+
+Jupyter
+
+=========================
+
+.ipynb_checkpoints/
+
+=========================
+
+IDEs / editors
+
+=========================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+=========================
+
+macOS
+
+=========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+macOS temporary files
+
+._*
+
+=========================
+
+Windows
+
+=========================
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+
+=========================
+
+Logs / temporary files
+
+=========================
+
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+
+=========================
+
+Generated application output
+
+=========================
+
+output/
+outputs/
+generated/
+generated_files/
+
+=========================
+
+Local data / caches
+
+=========================
+
+.cache/
+.cache-loader/
+.pyre/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+=========================
+
+OS / tooling
+
+=========================
+
+*.bak
+*.backup
+*.orig
+
+### One important security point
+Your **CVs and cover letters contain personal information**. If this GitHub repository is going to be **public**, I would strongly consider making the repository private, even if you want the project itself to be portfolio-worthy.
+I would **not** put `CVS/` or `COVER LETTERS/` into `.gitignore` if the intention is for the agent to actually retrieve them from the repository. But I would keep the repo private unless you've deliberately removed personal details.
+And don't put `.env` in GitHub — the `.gitignore` above protects you from accidentally committing API keys when we start connecting the model.
+---
+### Then we're ready for the fun part
+Once these files are in place, the repo has a clean separation:
+**Knowledge**
+→ who you are and what evidence exists
+**CV library**
+→ which version to use
+**Dogfood**
+→ known test cases
+**Prompts**
+→ how the model should reason
+**App**
+→ actually runs the thing
+**Applications**
+→ eventually gives the system a feedback loop
+So the next step really can be **`main.py` + `screening.md`**, and I would make the first version accept a **plain pasted JD in the terminal**. No APIs, no web scraping, no agents talking to agents yet. Get that tiny loop working first.
